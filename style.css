@@ -1,0 +1,153 @@
+/* Hide navbar initially */
+#homeNav {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show navbar when mouse is near */
+#homeNav.show {
+    opacity: 1;
+}
+
+/* Hide nav items initially */
+.nav-item-hidden {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show nav items on hover */
+.navbar-nav:hover .nav-item-hidden {
+    opacity: 1;
+}
+
+
+/* Hide the navbar initially */
+#homeNav {
+    transform: translateY(-100%); /* Move navbar out of view */
+    transition: transform 0.3s ease-in-out;
+    position: fixed; /* Ensure the navbar stays at the top */
+    top: 0;
+    width: 10%;
+    z-index: 100;
+}
+
+/* Class to show the navbar */
+.navbar-visible {
+    transform: translateY(0); /* Bring navbar back into view */
+}
+
+/* Background settings */
+body {
+    background: url('../bg.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Glassmorphism effect for the login form */
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    /* Light transparency */
+    backdrop-filter: blur(15px);
+    /* Blur effect */
+    border-radius: 15px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-header {
+    border-bottom: none;
+    text-align: center;
+}
+
+.modal-header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 18px;
+    transition: border-color 0.3s ease;
+    border-radius: 0;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-control:focus {
+    border-bottom: 2px solid #ffeb3b;
+    box-shadow: none;
+}
+
+button {
+    background: linear-gradient(45deg, #ff6b6b, #fbc531);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0px 10px 20px rgba(255, 107, 107, 0.4);
+    transition: all 0.4s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #fbc531, #ff6b6b);
+    transform: translateY(-3px);
+    box-shadow: 0px 12px 25px rgba(251, 197, 49, 0.5);
+}
+
+.tooltip-inner {
+    background-color: red;
+    color: white;
+}
+
+.modal-body {
+    padding: 30px 50px;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.box-footer {
+    display: flex;
+    /* Enable flexbox layout */
+    justify-content: space-between;
+    /* Space out the buttons to the left and right */
+    align-items: center;
+    /* Vertically center the buttons */
+}
+
+.box-footer .btn-home {
+    margin-right: auto;
+    /* Ensure no margin on the left side */
+}
+
+.box-footer .btn {
+    margin-left: center;
+    /* Push the Submit button to the rightmost side */
+}
+
