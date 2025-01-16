@@ -1,7 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.body-home, .body-login {
+	background: url(../img/bg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+.black-fill {
+	background: rgba(0,0,0, 0.7);
+	min-height: 100vh;
+}
+#homeNav {
+	background: rgba(255,255,255, 0.5) !important;
+}
+.welcome-text {
+	min-height: 80vh;
+}
+.welcome-text img {
+	width: 100px;
+}
+.welcome-text h4 {
+	color: #eee;
+	font-size: 51px;
+	font-family: 'Lobster', cursive;
+
+}
+.welcome-text p {
+	color: #222;
+	background: rgba(255,255,255, 0.5);
+	padding: 5px;
+	border-radius: 4px;
+}
+#about {
+	min-height: 100vh;
+}
+#about .card-1{
+	max-width: 600px;
+	width: 90%;
+	background: rgba(255,255,255, 0.5);
+	padding: 20px;
+	border-radius: 5px;
+}
+#about .card-1 h5{
+	font-family: 'Lobster', cursive;
+	font-size: 28px;
+}
+
+#contact {
+	min-height: 100vh;
+}
+#contact form{
+	max-width: 600px;
+	width: 90%;
+	background: rgba(255,255,255, 0.5);
+	padding: 20px;
+	border-radius: 5px;
+}
+#contact form h3 {
+	text-align: center;
+	font-family: 'Lobster', cursive;
+}
+textarea {
+	resize: none;
+}
+
+.login {
+	max-width: 500px;
+	width: 90%;
+	background: rgba(255,255,255, 0.5);
+	padding: 10px;
+	border-radius: 10px;
+}
+.login h3{
+	text-align: center;
+	font-size: 50px;
+}
+.w-450 {
+	width: 450px;
+}
+.n-table {
+	max-width: 800px;
+}
+.form-w {
+	max-width: 600px;
+	width: 100%;
+}
 /* Hide navbar initially */
 #homeNav {
     opacity: 0;
     transition: opacity 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* Show navbar when mouse is near */
@@ -16,10 +105,14 @@
 }
 
 /* Show nav items on hover */
-.navbar-nav:hover .nav-item-hidden {
+#homeNav:hover .nav-item-hidden {
     opacity: 1;
 }
-
+/* Adjust logo size */
+.navbar-brand img {
+    width: 60px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
 
 /* Hide the navbar initially */
 #homeNav {
@@ -27,8 +120,8 @@
     transition: transform 0.3s ease-in-out;
     position: fixed; /* Ensure the navbar stays at the top */
     top: 0;
-    width: 10%;
-    z-index: 100;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* Class to show the navbar */
@@ -36,118 +129,53 @@
     transform: translateY(0); /* Bring navbar back into view */
 }
 
-/* Background settings */
-body {
-    background: url('../bg.png') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+
+
+
+/* Style for the chatbot icon at the bottom right corner */
+#chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
 }
 
-/* Glassmorphism effect for the login form */
-.modal-content {
-    background: rgba(255, 255, 255, 0.1);
-    /* Light transparency */
-    backdrop-filter: blur(15px);
-    /* Blur effect */
-    border-radius: 15px;
-    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.modal-header {
-    border-bottom: none;
-    text-align: center;
-}
-
-.modal-header h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #fff;
-    letter-spacing: 1px;
-}
-
-.form-control {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid white;
-    color: white;
-    font-size: 18px;
-    transition: border-color 0.3s ease;
-    border-radius: 0;
-}
-
-.form-control::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.form-control:focus {
-    border-bottom: 2px solid #ffeb3b;
-    box-shadow: none;
-}
-
-button {
-    background: linear-gradient(45deg, #ff6b6b, #fbc531);
-    border: none;
-    padding: 10px 30px;
-    border-radius: 50px;
-    text-transform: uppercase;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0px 10px 20px rgba(255, 107, 107, 0.4);
-    transition: all 0.4s ease;
-}
-
-button:hover {
-    background: linear-gradient(45deg, #fbc531, #ff6b6b);
-    transform: translateY(-3px);
-    box-shadow: 0px 12px 25px rgba(251, 197, 49, 0.5);
-}
-
-.tooltip-inner {
-    background-color: red;
-    color: white;
-}
-
-.modal-body {
-    padding: 30px 50px;
-}
-
-.modal-footer {
-    border-top: none;
-}
-
-.bg {
+/* Style for the modal (popup) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
     position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
+    top: 10px;
+    right: 25px;
 }
 
-.box-footer {
-    display: flex;
-    /* Enable flexbox layout */
-    justify-content: space-between;
-    /* Space out the buttons to the left and right */
-    align-items: center;
-    /* Vertically center the buttons */
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
-
-.box-footer .btn-home {
-    margin-right: auto;
-    /* Ensure no margin on the left side */
-}
-
-.box-footer .btn {
-    margin-left: center;
-    /* Push the Submit button to the rightmost side */
-}
-
