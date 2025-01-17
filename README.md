@@ -58,9 +58,7 @@
 <p align="center">
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rocky-Dewan&langs_count=8&layout=compact&theme=radical" alt="Top Languages" />
 </p>
-<p>
-    <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=Rocky-Dewan&show_icons=true&locale=en&layout=compact" alt="Rocky-Dewan" />
-</p>
+
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=Rocky-Dewan&show_icons=true&locale=en" alt="Rocky-Dewan" /></p>
 
