@@ -62,42 +62,42 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 	$email2=$row2['email'];
 	
 	if($index_number == $index_number1 ){
-		//MSK-000143-1 The index number is duplicated.
+		//RD-250-1 The index number is duplicated.
 		$msg+=1;
 		
 		if($email == $email2){
-			//MSK-000143-2 Both index number and email duplicate.
+			//RD-250-2 Both index number and email duplicate.
 			$msg+=3; //(Note: msg value is not equel to 3, its value is 1+=3 -> 1+3 = 4 :D)
 		}
 
 	}else if($email == $email2){
 		
-		//MSK-000143-3 Only email address duplicates.
+		//RD-250-3 Only email address duplicates.
 		$msg+=5;
 		
 	}else{
-		//MSK-000143-4
+		//RD-250-4
 		if(($extention == "jpg" || $extention == "jpeg" || $extention == "png") && $size < $max){//This line is not needed, bcz we checked it before.
 			if(move_uploaded_file($tmpname, $image_path)){				
-				//MSK-000143-5	
+				//RD-250-5	
 
 				$sql = "INSERT INTO student (index_number,full_name,i_name,gender,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
 			            VALUES ('".$index_number."','".$full_name."','".$i_name."','".$gender."','".$address."','".$phone."','".$email."','".$image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$b_date."')";
 
 				if(mysqli_query($conn,$sql)){
 					$msg+=2;  
-					//MSK-000143-6 The record has been successfully inserted into the database.
+					//RD-250-6 The record has been successfully inserted into the database.
 					$sql3= "INSERT INTO user (email,password,type)
 			                VALUES ('".$email."','12345','Student')";
 					
 					mysqli_query($conn,$sql3);
 				}else{
 					$msg+=3;  
-					//MSK-000143-7 Connection problem.
+					//RD-250-7 Connection problem.
 				}
 				
 			}else{
-				//MSK-000143-8 If there aren't any folder - "uploads"
+				//RD-250-8 If there aren't any folder - "uploads"
 				$msg+=6; 
 			}
 		}else{
@@ -121,42 +121,42 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 	$email5=$row5['email'];
 	
 	if($g_index_number == $index_number4 ){
-		//MSK-000143-1 The index number is duplicated.
+		//RD-250-1 The index number is duplicated.
 		$g_msg+=1;
 		
 		if($g_email == $email5){
-			//MSK-000143-2 Both index number and email duplicate.
+			//RD-250-2 Both index number and email duplicate.
 			$g_msg+=3; //(Note: msg value is not equel to 3, its value is 1+=3 -> 1+3 = 4 :D)
 		}
 
 	}else if($g_email == $email5){
 		
-		//MSK-000143-3 Only email address duplicates.
+		//RD-250-3 Only email address duplicates.
 		$g_msg+=5;
 		
 	}else{
-		//MSK-000143-4
+		//RD-250-4
 		if(($extention1 == "jpg" || $extention1 == "jpeg" || $extention1 == "png") && $size1 < $max1){//This line is not needed, bcz we checked it before.
 			if(move_uploaded_file($tmpname1, $g_image_path)){				
-				//MSK-000143-5	
+				//RD-250-5	
 
 				$sql6 = "INSERT INTO parents (index_number,my_son_index,full_name,i_name,gender,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
 			             VALUES ('".$g_index_number."','".$index_number."','".$g_full_name."','".$g_i_name."','".$g_gender."','".$g_address."','".$g_phone."','".$g_email."','".$g_image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$g_b_date."')";
 
 				if(mysqli_query($conn,$sql6)){
 					$g_msg+=2;  
-					//MSK-000143-6 The record has been successfully inserted into the database.
+					//RD-250-6 The record has been successfully inserted into the database.
 					$sql7= "INSERT INTO user (email,password,type)
 			                VALUES ('".$g_email."','12345','Parents')";
 					
 					mysqli_query($conn,$sql7);
 				}else{
 					$g_msg+=3;  
-					//MSK-000143-7 Connection problem.
+					//RD-250-7 Connection problem.
 				}
 				
 			}else{
-				//MSK-000143-8 If there aren't any folder - "uploads"
+				//RD-250-8 If there aren't any folder - "uploads"
 				$g_msg+=6; 
 			}
 		}else{
