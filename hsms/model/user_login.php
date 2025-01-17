@@ -75,7 +75,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="user_login")){
 	echo $_SESSION["index_number"];
 	echo $_SESSION["type"];
 
-//header("Location:view/attendents.php?do=alert_from_insert&msg=$msg&msg1=$monthly_fee&student_late=$student_late&teacher_late=$teacher_late&intime=$intime&outtime=$outtime&alert=$alert");//MSK-000143-5
+//header("Location:view/attendents.php?do=alert_from_insert&msg=$msg&msg1=$monthly_fee&student_late=$student_late&teacher_late=$teacher_late&intime=$intime&outtime=$outtime&alert=$alert");//RD-250-5
 
 }
 ?>
