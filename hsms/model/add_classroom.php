@@ -14,23 +14,23 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_classroom")){
 
 	if($name == $name1){
 		$msg+=1;
-		//MSK-000143-1 The Classroom is duplicated.
+		//RD-250-1 The Classroom is duplicated.
 	}else{
-		//MSK-000143-2
+		//RD-250-2
 		$sql="INSERT INTO class_room (name, student_count) 
      		  VALUES ( '".$name."','".$student_count."')";
 	  
 			  if(mysqli_query($conn,$sql)){
 				$msg+=2;  
-				//MSK-000143-3 The record has been successfully inserted into the database.
+				//RD-250-3 The record has been successfully inserted into the database.
 			  }else{
 				$msg+=3;  
-				//MSK-000143-4 Connection problem.	
+				//RD-250-4 Connection problem.	
 			  }
 
 	}
 
-header("Location: view/class_room.php?do=alert_from_insert&msg=$msg");//MSK-000143-5
+header("Location: view/class_room.php?do=alert_from_insert&msg=$msg");//RD-250-5
 
 }
 ?>
