@@ -22,7 +22,7 @@ body {
      min-width:180px;
 }
 
-.msk-fade {  
+.RD-fade {  
       
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -78,7 +78,7 @@ body {
                 	<div class="box-header with-border">
                   		<h3 class="box-title">Add Classroom</h3>
                 	</div><!-- /.box-header -->
-                	<!-- //MSK-00097 form start -->
+                	<!-- //RD-00097 form start -->
                 	<form role="form" action="../index.php" method="post">             
 						<div class="box-body">
                 			<div class="form-group" id="divName">
@@ -103,20 +103,20 @@ body {
 <script>
 
 $("form").submit(function (e) {
-//MSK-000098-form submit
+//RD-000098-form submit
 	
 	var name = $('#name').val();	
 	var student_count = $('#student_count').val();
 	var hall_charge = $('#hall_charge').val();	
 	
 	if(name == ''){
-		//MSK-00099-name 
+		//RD-00099-name 
 		$("#btnSubmit").attr("disabled", true);
 		$('#divName').addClass('has-error has-feedback');	
 		$('#divName').append('<span id="spanName" class="glyphicon glyphicon-remove form-control-feedback set-width-tooltip" data-toggle="tooltip"    title="The name is required" ></span>');	
 				
 		$("#name").keydown(function() {
-			//MSK-00100-name  
+			//RD-00100-name  
 			$("#btnSubmit").attr("disabled", false);	
 			$('#divName').removeClass('has-error has-feedback');
 			$('#spanName').remove();
@@ -128,13 +128,13 @@ $("form").submit(function (e) {
 	}
 
 	if(student_count == ''){
-		//MSK-00099-student_count
+		//RD-00099-student_count
 		$("#btnSubmit").attr("disabled", true);
 		$('#divStudentCount').addClass('has-error has-feedback');
 		$('#divStudentCount').append('<span id="spanStudentCount" class="glyphicon glyphicon-remove form-control-feedback set-width-tooltip" data-toggle="tooltip" title="The student count is required" ></span>');	
 		
 		$("#student_count").keydown(function() {
-			//MSK-00100-student_count
+			//RD-00100-student_count
 			$("#btnSubmit").attr("disabled", false);	
 			$('#divStudentCount').removeClass('has-error has-feedback');
 			$('#spanStudentCount').remove();
@@ -146,7 +146,7 @@ $("form").submit(function (e) {
 	}
 				 		
 	if(name == '' || student_count == ''){
-		//MSK-000098- form validation failed
+		//RD-000098- form validation failed
 		$("#btnSubmit").attr("disabled", true);
 		e.preventDefault();
 		return false;
@@ -164,7 +164,7 @@ $("form").submit(function (e) {
 <!--run Insert alert using PHP $ JS/jQuery  -->          
 <?php
 if(isset($_GET["do"])&&($_GET["do"]=="alert_from_insert")){
-//MSK-000143-6-PHP-JS-INSERT
+//RD-000143-6-PHP-JS-INSERT
 	
 	$msg=$_GET['msg'];
 
@@ -226,14 +226,14 @@ if(isset($_GET["do"])&&($_GET["do"]=="alert_from_insert")){
        
     <!-- Main content -->
     <section class="content" > <!-- Start of table section -->
-    	<div class="row" id="table1"><!--MSK-000132-1-->
+    	<div class="row" id="table1"><!--RD-000132-1-->
         	<div class="col-md-8">
             	<div class="box">
                 	<div class="box-header">
                   		<h3 class="box-title">All Classroom</h3>
                 	</div><!-- /.box-header -->
                 	<div class="box-body table-responsive" style="overflow-x:auto;">
-                    	<!--MSK-00101-->
+                    	<!--RD-00101-->
                 		<table id="example1" class="table table-bordered table-striped">
                     		<thead>
                         		<th>ID</th>
@@ -257,8 +257,8 @@ if(mysqli_num_rows($result) > 0){
 ?>   
                         		<tr>
                             		<td><?php echo $count; ?></td>
-               <!--MSK-000115-td1--><td id="td1_<?php echo $row['id']; ?>"><?php echo $row['name']; ?></td>
-               <!--MSK-000115-td2--><td id="td2_<?php echo $row['id']; ?>"><?php echo $row['student_count']; ?></td>
+               <!--RD-000115-td1--><td id="td1_<?php echo $row['id']; ?>"><?php echo $row['name']; ?></td>
+               <!--RD-000115-td2--><td id="td2_<?php echo $row['id']; ?>"><?php echo $row['student_count']; ?></td>
                                 	<td>  
                                     
 <?php
@@ -306,8 +306,8 @@ if($cant_remove > 0 ||  $cant_remove1 > 0){
 		</div>
 	</section> <!-- End of table section -->
     
-	<!-- //MSK-00103 Modal-Update form -->  
-	<div class="modal msk-fade" id="modalUpdateform" tabindex="-1" role="dialog" aria-labelledby="modalUpdateform" aria-hidden="true">  
+	<!-- //RD-00103 Modal-Update form -->  
+	<div class="modal RD-fade" id="modalUpdateform" tabindex="-1" role="dialog" aria-labelledby="modalUpdateform" aria-hidden="true">  
   		<div class="modal-dialog">
     		<div class="container">
             	<div class="row ">	
@@ -340,14 +340,14 @@ if($cant_remove > 0 ||  $cant_remove1 > 0){
     
 <script>
 function showModal(Updateform){
-//MSK-00104
+//RD-00104
 	
 	var Id = $(Updateform).data("id");  
 		
-	var xhttp = new XMLHttpRequest();//MSK-00105-Ajax Start  
+	var xhttp = new XMLHttpRequest();//RD-00105-Ajax Start  
   		xhttp.onreadystatechange = function() {
     		if (this.readyState == 4 && this.status == 200) {
-				//MSK-00107 
+				//RD-00107 
 				var myArray1 = eval(xhttp.responseText);
 				
 				document.getElementById("id").value =myArray1[0];
@@ -359,25 +359,25 @@ function showModal(Updateform){
   		};	
 		
     xhttp.open("GET", "../model/get_classroom.php?id=" + Id , true);												
-  	xhttp.send();//MSK-00105-Ajax End
+  	xhttp.send();//RD-00105-Ajax End
 	 
 };
   
 function Updateclassroom(){
-//MSK-000108
+//RD-000108
 	
 	var Id1 = document.getElementById('id').value;
 	var name1 = document.getElementById('name1').value;
 	var student_count1 = document.getElementById('student_count1').value;
 
 	if(name1 == ''){
-		//MSK-00109-name
+		//RD-00109-name
 		$("#btnSubmit1").attr("disabled", true);
 		$('#divNameUpdate').addClass('has-error has-feedback');	
 		$('#divNameUpdate').append('<span id="spanNameUpdate" class="glyphicon glyphicon-remove form-control-feedback set-width-tooltip" data-toggle="tooltip"    title="The name is required" ></span>');	
 			
 		$("#name1").keydown(function() {
-			//MSK-00110-name 
+			//RD-00110-name 
 			$("#btnSubmit1").attr("disabled", false);	
 			$('#divNameUpdate').removeClass('has-error has-feedback');
 			$('#spanNameUpdate').remove();
@@ -388,13 +388,13 @@ function Updateclassroom(){
 	}
 
 	if(student_count1 == ''){
-		//MSK-00109-student_count
+		//RD-00109-student_count
 		$("#btnSubmit1").attr("disabled", true);
 		$('#divSCountUpdate').addClass('has-error has-feedback');
 		$('#divSCountUpdate').append('<span id="spanSCountUpdate" class="glyphicon glyphicon-remove form-control-feedback set-width-tooltip" data-toggle="tooltip" title="The student count is required" ></span>');	
 		
 		$("#student_count1").keydown(function() {
-			//MSK-00110-student_count
+			//RD-00110-student_count
 			$("#btnSubmit1").attr("disabled", false);	
 			$('#divSCountUpdate').removeClass('has-error has-feedback');
 			$('#spanSCountUpdate').remove();
@@ -406,7 +406,7 @@ function Updateclassroom(){
 	}
 				 		
 	if(name1 == '' || student_count1 == '' ){
-		//MSK-000098-validation failed
+		//RD-000098-validation failed
 		$("#btnSubmit1").attr("disabled", true);
 		e.preventDefault();
 		return false;
@@ -416,38 +416,38 @@ function Updateclassroom(){
 		$("#btnSubmit1").attr("disabled", false);
 		var do1 = "update_classroom";	
 		
-		var xhttp = new XMLHttpRequest();//MSK-00111-Ajax Start  
+		var xhttp = new XMLHttpRequest();//RD-00111-Ajax Start  
   			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-					//MSK-000112
+					//RD-000112
 					var myArray2 = eval(xhttp.responseText);
 					var msg = myArray2[3];
 					
-					if(msg==1){//MSK-000113
+					if(msg==1){//RD-000113
 						
-						//MSK-000114
+						//RD-000114
 						document.getElementById("td1_"+Id1 ).innerHTML =myArray2[1];
 						document.getElementById("td2_"+Id1 ).innerHTML =myArray2[2];
 						$("#modalUpdateform").modal('hide');
-						Update_alert(msg);//MSK-000116
+						Update_alert(msg);//RD-000116
 						
 					}
 			
-					if(msg==2){//MSK-000118
+					if(msg==2){//RD-000118
 						
 						$("#modalUpdateform").modal('hide');
 						Update_alert(msg);
 						
 					}
 
-					if(msg==3){//MSK-000119
+					if(msg==3){//RD-000119
 						
 						$("#modalUpdateform").modal('hide');
 						Update_alert(msg);
 		
 					}
 			
-					if(msg==4){//MSK-000120
+					if(msg==4){//RD-000120
 						
 						$("#modalUpdateform").modal('hide');
 						Update_alert(msg);
@@ -459,7 +459,7 @@ function Updateclassroom(){
   			};
 			
   			xhttp.open("GET", "../model/update_classroom.php?id=" + Id1 + "&name="+name1 + "&student_count="+student_count1  +  "&do="+do1, true);												
-  			xhttp.send();//MSK-00111-Ajax End
+  			xhttp.send();//RD-00111-Ajax End
 		
 	}
 
@@ -467,7 +467,7 @@ function Updateclassroom(){
 
 
 function Update_alert(msg){
-//MSK-000117	
+//RD-000117	
 	if(msg==1){
 		
     	var myModal = $('#update_Success');
@@ -522,8 +522,8 @@ function Update_alert(msg){
 
 </script>    
 
-<!-- //MSK-000124 Modal-Delete Confirm Popup -->
-	<div class="modal msk-fade " id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- //RD-000124 Modal-Delete Confirm Popup -->
+	<div class="modal RD-fade " id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   		<div class="modal-dialog">
     		<div class="modal-content">
 				<div class="modal-header bg-primary">
@@ -535,7 +535,7 @@ function Update_alert(msg){
         			<strong style="color:red;">Are you sure?</strong>  Do you want to Delete this Record
         		</div>
       			<div class="modal-footer">
-					<a href="#" style='margin-left:10px;' id="btnYes" class="deletebtn btn btn-danger col-sm-2 pull-right">Yes</a><!-- MSK-000125 -->
+					<a href="#" style='margin-left:10px;' id="btnYes" class="deletebtn btn btn-danger col-sm-2 pull-right">Yes</a><!-- RD-000125 -->
         			<button type="button" class="btn btn-primary col-sm-2 pull-right" data-dismiss="modal" id="frm_cancel">No</button>
       			</div>
     		</div>
@@ -546,15 +546,15 @@ function Update_alert(msg){
 <script>
 
 $('body').on('click', '.confirm-delete', function (e){
-//MSK-000122		
+//RD-000122		
     e.preventDefault();
     var id = $(this).data('id');
-	$('#deleteConfirm').data('id1', id).modal('show');//MSK-000123
+	$('#deleteConfirm').data('id1', id).modal('show');//RD-000123
  	
 });
 
 $('#btnYes').click(function() {
-//MSK-000126
+//RD-000126
     
     var id = $('#deleteConfirm').data('id1');	
 	var do1 = "delete_record";	
@@ -563,52 +563,52 @@ $('#btnYes').click(function() {
 	var info = $('#example1').DataTable().page.info();
 	var currentPage= (info.page + 1);
 	
-	var xhttp = new XMLHttpRequest();//MSK-000127-Ajax Start  
+	var xhttp = new XMLHttpRequest();//RD-000127-Ajax Start  
   		xhttp.onreadystatechange = function() {
 			
     		if (this.readyState == 4 && this.status == 200) {
-				//MSK-000129
+				//RD-000129
 				var myArray = eval( xhttp.responseText );
 					
-				if(myArray[0]==1){//MSK-000130
+				if(myArray[0]==1){//RD-000130
 				
 					$("#deleteConfirm").modal('hide');	        		
 					var page = myArray[1];
 				
-					var xhttp1 = new XMLHttpRequest();//MSK-000131-Start Ajax  
+					var xhttp1 = new XMLHttpRequest();//RD-000131-Start Ajax  
 						xhttp1.onreadystatechange = function() {		
 				
 							if (this.readyState == 4 && this.status == 200) {
 										
-								document.getElementById('table1').innerHTML = this.responseText;//MSK-000132
-								cTablePage(page);//MSK-000133
-								Delete_alert(myArray[0]);//MSK-000134	
+								document.getElementById('table1').innerHTML = this.responseText;//RD-000132
+								cTablePage(page);//RD-000133
+								Delete_alert(myArray[0]);//RD-000134	
 							
 							}
 								
 						};
 						
 						xhttp1.open("GET", "show_classroom_table.php" , true);												
-  						xhttp1.send();//MSK-000131-End Ajax
+  						xhttp1.send();//RD-000131-End Ajax
 				
 					}
 		
-					if(myArray[0]==2){//MSK-000137
+					if(myArray[0]==2){//RD-000137
 			
 						$("#deleteConfirm").modal('hide');
-						Delete_alert(myArray[0]);//MSK-000138
+						Delete_alert(myArray[0]);//RD-000138
 				
 					}
     		}
 			
   		};	
     xhttp.open("GET", "../model/delete_record.php?id=" + id + "&do="+do1 + "&table_name="+table_name + "&page="+currentPage , true);												
-  	xhttp.send();//MSK-000127-Ajax End
+  	xhttp.send();//RD-000127-Ajax End
 	 			   		
 });
 
 function cTablePage(page){
-//MSK-000135	
+//RD-000135	
 	var currentPage1 = (page-1)*10;
 	
 	$(function(){
@@ -625,7 +625,7 @@ function cTablePage(page){
 
 
 function Delete_alert(msg){
-//MSK-000136	
+//RD-000136	
 	if(msg==1){
 		
     	var myModal = $('#delete_Success');
